@@ -7,8 +7,9 @@ class Usuario
         @cuentas_bancarias = cuentas_bancarias
         puts "Hola #{@nombre}, tienes $#{@saldo_total} en tu cuenta"
     end
-    def suma(saldo_total)
-        @saldo_total = reduce.saldo
+
+    def to_s
+        return "#{@saldo_total}"
     end
 end
 
