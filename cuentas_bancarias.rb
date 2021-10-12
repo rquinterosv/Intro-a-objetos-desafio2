@@ -1,5 +1,5 @@
 class Usuario 
-    attr :nombre
+    attr :nombre, :saldo_total, :cuentas_bancarias 
 
     def initialize(nombre, saldo_total, cuentas_bancarias)
         @nombre = nombre
@@ -9,7 +9,7 @@ class Usuario
     end
 
     def to_s
-        return "#{@saldo_total}"
+        return "#{@saldo_total}, #{cuentas_bancarias}, #{saldo_total}"
     end
 end
 
@@ -31,8 +31,13 @@ class CuentaBancaria
         else
             "No tienes dinero"
         end
+
         puts "El nuevo saldo para #{@numero_de_cuenta} es #{@saldo}"
         puts "#{c_destino.numero_de_cuenta} saldo nuevo #{c_destino.saldo}"
+    end
+
+    def to_s 
+        return "#{saldo}, #{numero_de_cuenta}, #{banco}"
     end
 
 end
@@ -45,3 +50,11 @@ p1 = Usuario.new("Rafa", 0, [c1, c3])
 p2 = Usuario.new("Ignacio", 0, [c2])
 
 c1.transferir(10000, c2)
+c2.transferir(30000, c3)
+puts c1.saldo
+puts c2.saldo
+puts c3.saldo
+
+puts p1.cuentas_bancarias
+puts p2.cuentas_bancarias
+
